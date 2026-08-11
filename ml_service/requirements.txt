@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+sentence-transformers
+torch
+transformers
+numpy
+pdfplumber
+python-docx

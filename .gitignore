@@ -1,0 +1,35 @@
+# -- Maven / Java ------------------------------------------------
+backend/target/
+backend/bin/
+backend/uploaded_resumes/
+uploaded_resumes/
+*.class
+*.log
+
+# -- IDE / OS -----------------------------------------------------
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+*.DS_Store
+Thumbs.db
+
+# -- Node / React -------------------------------------------------
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# -- Python -------------------------------------------------------
+ml_service/__pycache__/
+ml_service/*.pyc
+ml_service/.venv/
+ml_service/venv/
+
+# -- Misc ---------------------------------------------------------
+*.swp
+*.orig
+npm-debug.log*
