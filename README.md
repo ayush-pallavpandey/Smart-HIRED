@@ -34,3 +34,9 @@ Next steps I can do for you:
 - Generate a PR in your repo (you’ll need to give me repo access or create the repo).
 - Convert ML parse endpoint to multipart/form-data (instead of base64).
 - Make parsing asynchronous and add status endpoints.
+
+### 📊 Ranked Candidates
+
+Candidates are ranked according to their calculated NLP similarity score.
+
+![Ranked Candidates](screenshots/ai-matching-recruiter.png)
