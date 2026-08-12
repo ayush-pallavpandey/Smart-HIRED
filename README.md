@@ -39,4 +39,4 @@ Next steps I can do for you:
 
 Candidates are ranked according to their calculated NLP similarity score.
 
-![Recruiter Page](screenshots/ai_job finding.png)
+![Ranked Candidates](screenshots/ML_RESUME_ORDER.png)
