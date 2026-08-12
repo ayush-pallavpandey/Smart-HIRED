@@ -1,6 +1,10 @@
 {
   "rewrites": [
-    { "source": "/api/:path*", "destination": "https://YOUR_BACKEND_URL/api/:path*" },
+    {
+      "source": "/api/:path*",
+      "destination": "https://YOUR_BACKEND_URL/api/:path*",
+      "_comment": "Replace YOUR_BACKEND_URL with your deployed backend host, or set BACKEND_URL in Vercel env vars and use that value here."
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

@@ -8,13 +8,19 @@ spring:
     hibernate:
       ddl-auto: update
     open-in-view: false
+    show-sql: false
     properties:
       hibernate:
-        format_sql: true
+        format_sql: false
   h2:
     console:
       enabled: true
       path: /h2-console
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 20MB
 
 server:
   port: ${SERVER_PORT:8080}
@@ -25,6 +31,15 @@ ml:
 
 upload:
   directory: ${UPLOAD_DIRECTORY:./uploaded_resumes}
+
+# Comma-separated allowed CORS origins — override via CORS_ALLOWED_ORIGINS env var
+cors:
+  allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000}
+
+# JWT — override JWT_SECRET in prod with a strong 256-bit value
+jwt:
+  secret: ${JWT_SECRET:SmartHireDefaultSecretKey_ChangeInProduction_256bits!!}
+  expiration-ms: ${JWT_EXPIRATION_MS:86400000}   # 24 h
 
 management:
   endpoints:

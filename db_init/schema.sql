@@ -1,6 +1,6 @@
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
   username TEXT UNIQUE NOT NULL,
   password_hash TEXT NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE users (
   created_at TIMESTAMP DEFAULT now()
 );
 
-CREATE TABLE resumes (
+CREATE TABLE IF NOT EXISTS resumes (
   id SERIAL PRIMARY KEY,
   user_id INT REFERENCES users(id),
   filename TEXT NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE resumes (
   status TEXT DEFAULT 'UPLOADED'
 );
 
-CREATE TABLE jobs (
+CREATE TABLE IF NOT EXISTS jobs (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   requirements TEXT,
@@ -27,7 +27,7 @@ CREATE TABLE jobs (
   created_at TIMESTAMP DEFAULT now()
 );
 
-CREATE TABLE job_scores (
+CREATE TABLE IF NOT EXISTS job_scores (
   id SERIAL PRIMARY KEY,
   job_id UUID REFERENCES jobs(id) ON DELETE CASCADE,
   resume_id INT REFERENCES resumes(id) ON DELETE CASCADE,
@@ -36,5 +36,5 @@ CREATE TABLE job_scores (
   created_at TIMESTAMP DEFAULT now()
 );
 
-CREATE INDEX idx_job_scores_job_id_score ON job_scores(job_id, score DESC);
-CREATE INDEX idx_resumes_uploaded_at ON resumes(uploaded_at);
+CREATE INDEX IF NOT EXISTS idx_job_scores_job_id_score ON job_scores(job_id, score DESC);
+CREATE INDEX IF NOT EXISTS idx_resumes_uploaded_at ON resumes(uploaded_at);

@@ -30,6 +30,11 @@ class ParseRequest(BaseModel):
     content_b64: str
 
 
+@app.get("/")
+def health():
+    return {"status": "ok", "model": MODEL_NAME}
+
+
 @app.post("/embed")
 def embed(req: EmbedRequest):
     emb = model.encode(req.texts, convert_to_numpy=True, show_progress_bar=False)
